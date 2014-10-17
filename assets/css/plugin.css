@@ -1,0 +1,164 @@
+/* ==========================================================================
+	Utility
+	========================================================================= */	
+	
+	.clearfix:before,
+	.clearfix:after {
+		content:"";
+		display:table;
+	}
+	.clearfix:after { clear:both; }
+	.clearfix { zoom:1; } /* For IE 6/7 (trigger hasLayout) */
+
+	.full-width {
+		width: 100%;
+	}
+
+/* ==========================================================================
+	Forms
+	========================================================================= */
+
+	.form-row {
+		display: block;
+		padding: 20px 10px 20px 0;
+	}
+
+		.form-row:before,
+		.form-row:after {
+			content:"";
+			display:table;
+		}
+		.form-row:after { clear:both; }
+		.form-row { zoom:1; }
+
+
+	.section {
+		margin: 15px 0;
+		border-left: 5px solid #e5e5e5;
+		padding: 0 15px;
+	}
+
+	.form-block {
+		display: inline-block;
+	}
+
+	label,
+	.label {
+		display: inline-block;
+		font-weight: bold;
+	}
+
+	.block-label {
+		display: block;
+		margin-bottom: 5px;
+	}	
+
+	.label-column {
+		width: 200px;
+		padding-right: 10px;
+		float: left;
+	}
+
+	.form-column {
+		float: left;
+	}
+
+/* ==========================================================================
+	Checkboxes
+	========================================================================= */
+
+	.checkbox-block {
+		display: block;
+		margin: 0 0 15px;
+	}
+
+	.checkbox-block label {
+		font-weight: normal;
+	}
+
+	.checkbox-block input {
+		margin-right: 2px;
+	}
+
+	.checkbox-group .checkbox-block {
+		display: inline-block;
+		width: 25%;
+		min-width: 200px;
+	}
+
+
+/* ==========================================================================
+	Media
+	========================================================================= */
+
+	.media-block {
+		width: 100%;
+		margin: 15px 0;
+	}
+
+	.media-display {
+		margin: 10px 0;
+	}
+
+	.media-upload-container.has-img .media-upload-button {
+		display: none;
+	}
+
+	.media-upload-container.no-img .media-remove-button {
+		display: none;
+	}
+
+	.media-block .label-column + .media-upload-container {
+		float: left;
+	}
+
+/* ==========================================================================
+	Color
+	========================================================================= */
+
+	.color-section {
+		position: relative;
+	}
+
+	.color-block {
+		display: block;
+	}
+
+	.color-block label {
+		vertical-align: top;
+	}
+
+
+	.color-block .wp-picker-holder {
+	}
+
+	.color-block .wp-picker-container .iris-picker {
+	}
+
+/* ==========================================================================
+	Char Counter
+	========================================================================= */
+
+	.char-count {
+		display: block;
+		width: 100%;
+		height: 10px;
+		overflow: hidden;
+		margin: 5px 1px 1px 1px;
+		border-radius: 5px;
+	}
+
+	.char-count .count-progress {
+		display: block;
+		width: 0;
+		height: 10px;
+		background: #9ef09e;
+
+		-webkit-transition: width .1s;
+		-moz-transition: width .1s;
+		transition: width .1s;
+	}
+
+	.exceeded .char-count .count-progress {
+		background: #f09e9e;
+	}		
