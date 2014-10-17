@@ -99,9 +99,9 @@ class JPM {
 		self::$plugin_url  = plugins_url('', __FILE__);
 	}
 
-	public static function apply_filters($name, $var) {
-		return apply_filters(self::ABBREV . "/$name", $var);
-		return $var;
+	public static function apply_filters() {
+		$args = func_get_args();
+		return call_user_func_array('apply_filters', $args);
 	}
 
 	public static function notice($message, $class, $extra = "") {

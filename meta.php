@@ -1,8 +1,9 @@
 <?php
 
 class JPM_Meta extends JPM {
-	public $metadata = array();
-	public static $default_title = "";
+	public        $metadata          = array();
+	public static $default_title     = "";
+	public static $default_separator = "";
 
 	public function __construct() {
 		$this->add_sitewide_meta();
@@ -47,7 +48,7 @@ class JPM_Meta extends JPM {
 		$title = self::get_post_meta($post->ID, "meta-title", true);
 		
 		if (!$title) {
-			$title = self::$default_title;
+			$title = self::apply_filters("title", self::$default_title, self::$default_separator);
 		}
 
 		return $title;
@@ -104,7 +105,8 @@ class JPM_Meta extends JPM {
 	========================================================================= */
 
 	public static function set_title($title, $seperator) {
-		self::$default_title = $title;
+		self::$default_title     = $title;
+		self::$default_separator = $seperator;
 		return self::get_post_title();
 	}
 
