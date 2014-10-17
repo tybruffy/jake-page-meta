@@ -13,7 +13,18 @@ It is designed as a super simple, developer friendly alternative to some of the 
 
 It is meant to be developer friendly, and therefore it does not clobber the output of the `wp_title` filter.  Rather, it uses that filter unless a title has been set for a given post.  
 
-A caveat to that is that at some point in time, this plugin has to run that filter to set the page title.  So *after* this plugin runs, any other `wp_title` filters could clobber the `<title>` tag, but will fail to clobber the open graph title.  In an effort to avoid this, this plugin runs the `wp_title` filter with a priority of 100.  Any plugin or script that runs with a lower priority (1-99) will have it's return value used by this plugin.  Anything with a higher priority should also make use of the `JPM/title` filter.  It passes identical data as the `wp_title` filter.
+A caveat to that is that at some point in time, this plugin has to run that filter to set the page title.  So *after* this plugin runs, any other `wp_title` filters could clobber the `<title>` tag, but will fail to clobber the open graph title.  In an effort to avoid this, this plugin runs the `wp_title` filter with a priority of 100.  Any plugin or script that runs with a lower priority (1-99) will have it's return value used by this plugin.  
+
+If yoru script or a plugin *has* to run with a priortity higher than 100, you can use the `JPM/title` filter.  It is a drop in replacement for the `wp_title` filter to set the Open Graph title.  It passes identical data as the `wp_title` filter.  An example:
+
+```php
+function my_title_changer($title, $seperator) {
+	return $title . " $seperator " . get_blog_info("name");
+}
+
+apply_filter("wp_title", "my_title_changer", 200, 2);
+apply_filter("JPM/title", "my_title_changer", 200, 2);
+```
 
 Notes
 --------------
