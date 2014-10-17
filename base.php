@@ -85,7 +85,7 @@ class JPM {
 
 	public function include_files() {
 		require_once("controller.php");
-		require_once("settings_controller.php");
+		require_once("settings.php");
 		require_once("schema.php");
 		require_once("meta.php");
 	}
